@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src="woofer.svg" className="App-logo" alt="logo" />
         <p>
-          Woofer
+          Woofer Test
         </p>
         <p className="small">
           An Innovation & Technology team challenge
