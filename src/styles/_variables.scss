@@ -1,0 +1,7 @@
+// Variable Naming: ${theme}_{component}_{kind}_{element}_{state}_{property}--{modifier}
+// ex: $light_input-field_icon_error_border-color--hover
+// ex: $dark_button_primary_bg--hover
+
+@import './variables/colors';
+@import './variables/core';
+@import './variables/typography';

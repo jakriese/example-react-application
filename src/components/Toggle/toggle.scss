@@ -1,0 +1,49 @@
+@import '../../styles/required';
+
+.wf-toggle {
+    cursor: pointer;
+    display: inline-flex;
+
+    &__input {
+        @include sr-only;
+    }
+
+    &__control {
+        // TODO: add theming here
+        border: 1px solid rgba(var(--wf_interface-soft));
+        border-radius: 10px;
+        height: 20px;
+        position: relative;
+        transition: .35s ease background-color, .35 ease border-color;
+        width: 40px;
+
+        &--active {
+            background-color: #0F6CBD;
+            border-color: #0F6CBD;
+        }
+    }
+
+    &__input:focus-visible + &__control {
+        @include focus-primary;
+    }
+
+    &__knob {
+        background-color: rgba(var(--wf_interface-soft));
+        border-radius: 50%;
+        height: 14px;
+        left: 2px;
+        position: absolute;
+        top: 2px;
+        transition: .35s ease left, .35s ease background-color;
+        width: 14px;
+
+        &--active {
+            background-color: #FFF;
+            left: calc(100% - 0.1875rem - 0.875rem);
+        }
+    }
+
+    &__label {
+        margin-left: 0.75rem;
+    }
+}

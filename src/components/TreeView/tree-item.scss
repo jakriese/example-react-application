@@ -1,0 +1,21 @@
+.wf-tree-item {
+    &__button {
+        background: none;
+        border: 0;
+        color: rgba(var(--wf_interface));
+        cursor: pointer;
+        line-height: 1.5rem;
+        margin-bottom: 10px;
+        padding: 0 17px;
+    }
+
+    &__children {
+        // height: 0;
+        padding-left: 15px;
+        overflow: hidden;
+
+        &--expanded {
+            height: auto;
+        }
+    }
+}

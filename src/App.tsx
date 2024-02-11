@@ -1,18 +1,32 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import fetchDogContent from './api/dogsService';
+import SidebarLayout from './layouts/SidebarLayout';
+import DogTree from './components/DogTree';
+import DogPicList from './components/DogPicList';
+import Toggle from './components/Toggle';
 import './App.css';
+import './styles/global.scss';
 
 function App() {
+  const [dogs, setDogs] = useState({});
+  const [theme, setTheme] = useState('light');
+  const [dogFilter, setDogFilter] = useState([]);
+
+  function handleThemeChange(darkMode: boolean) {
+    setTheme(darkMode ? 'dark' : 'light');
+  }
+
+  useEffect(() => {
+    fetchDogContent('breeds/list/all').then(data => setDogs(data));
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="woofer.svg" className="App-logo" alt="logo" />
-        <p>
-          Woofer Test
-        </p>
-        <p className="small">
-          An Innovation & Technology team challenge
-        </p>
-      </header>
+    <div className="App" data-theme={theme}>
+      <SidebarLayout
+        sidebar={<DogTree dogs={dogs} onClick={setDogFilter} />}
+        sidebarBottom={<Toggle onToggle={handleThemeChange}>Dark mode</Toggle>}
+        content={<DogPicList dogs={dogs} dogFilter={dogFilter} />}
+      />
     </div>
   );
 }

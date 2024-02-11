@@ -1,0 +1,60 @@
+.wf-sidebar-layout {
+    background-color: rgba(var(--wf_background));
+    color: rgba(var(--wf_interface));
+    height: 100vh;
+    position: fixed;
+    transition: background-color 0.35s ease, color 0.35s ease;
+    width: 100vw;
+
+    &__logo-container {
+        align-items: center;
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: bold;
+        justify-content: center;
+    }
+
+    &__logo {
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+        margin-right: 20px;
+        overflow: hidden;
+    }
+
+    &__sidebar {
+        border-right: 1px solid rgba(var(--wf_accent));
+        height: 100vh;
+        left: 0;
+        position: fixed;
+        width: 18.125rem;
+    }
+
+    &__sidebar-top {
+        height: 7.5rem;
+        padding-top: 30px;
+    }
+
+    &__sidebar-content {
+        height: calc(100vh - 3.75rem - 7.5rem);
+        overflow: auto;
+        padding: 0 22px;
+    }
+
+    &__sidebar-bottom {
+        border-top: 1px solid rgba(var(--wf_accent));
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    &__main {
+        height: 100%;
+        overflow: auto;
+        position: fixed;
+        right: 0;
+        width: calc(100vw - 18.125rem);
+    }
+
+    &__content {
+        padding: 3rem;
+    }
+}

@@ -1,0 +1,16 @@
+@import 'required';
+@import 'themes';
+@import 'reset';
+@import 'grid';
+@import 'typography';
+@import 'helpers';
+
+html,
+body {
+    font-family: $font-family;
+    font-size: 100%;
+}
+
+.small {
+    font-size: 0.75rem;
+}

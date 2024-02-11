@@ -1,0 +1,24 @@
+$themes: (
+    light: (
+        primary: $light-primary,
+        background: ($light-bg, 1),
+        accent: ($light-accent, 1),
+        interface: ($light-interface, 1),
+        interface-soft: ($light-interface-soft, 1),
+    ),
+    dark: (
+        primary: $dark-primary,
+        background: ($dark-bg, 1),
+        accent: ($dark-accent),
+        interface: ($dark-interface, 1),
+        interface-soft: ($dark-interface-soft, 1),
+    ),
+);
+
+@each $name, $theme in $themes {
+    [data-theme=#{$name}] {
+        @each $key, $value in $theme {
+            --wf_#{"" + $key}: #{map-get($theme, $key)};
+        }
+    }
+}

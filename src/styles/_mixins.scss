@@ -1,0 +1,14 @@
+@mixin sr-only {
+    clip: rect(0,0,0,0) !important;
+    clip-path: inset(50%);
+    height: 1px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+}
+
+@mixin focus-primary {
+    box-shadow: 0 0 0 3px rgba(var(--wf_primary), 0.6) !important;
+    outline: none;
+}

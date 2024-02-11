@@ -1,0 +1,15 @@
+// light theme
+$light-primary: 15, 108, 189;
+$light-bg: 255, 248, 242;
+
+$light-interface: 47, 58, 75;
+$light-interface-soft: 97, 97, 97;
+$light-accent: 185, 185, 185;
+
+// dark theme
+$dark-primary: 15, 108, 189;
+$dark-bg: 40, 31, 34;
+
+$dark-interface: $light-bg;
+$dark-interface-soft: $light-interface;
+$dark-accent: $light-interface-soft;
