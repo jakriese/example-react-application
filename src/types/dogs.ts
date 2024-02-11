@@ -3,6 +3,7 @@ export interface DogList {
 }
 
 export interface TreeModel {
+    icon?: string;
     name: string;
     value: any;
     children?: TreeModel[]

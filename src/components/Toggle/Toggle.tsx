@@ -10,7 +10,7 @@ export default function Toggle({ children, onToggle }: { children?: ReactNode, o
     }
 
     return (
-        <label className="wf-toggle">
+        <label className="wf-toggle" data-testid="toggle">
             <input className="wf-toggle__input" type="checkbox" onInput={handleInput} />
             <div className={`wf-toggle__control ${value ? `wf-toggle__control--active` : ''}`}>
                 <div className={`wf-toggle__knob ${value ? `wf-toggle__knob--active` : ''}`} />

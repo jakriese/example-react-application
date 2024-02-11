@@ -4,7 +4,6 @@ import SidebarLayout from './layouts/SidebarLayout';
 import DogTree from './components/DogTree';
 import DogPicList from './components/DogPicList';
 import Toggle from './components/Toggle';
-import './App.css';
 import './styles/global.scss';
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
   }
 
   useEffect(() => {
+    console.log('fetching');
     fetchDogContent('breeds/list/all').then(data => setDogs(data));
   }, [])
 

@@ -4,18 +4,40 @@
         border: 0;
         color: rgba(var(--wf_interface));
         cursor: pointer;
+        display: flex;
+        align-items: center;
         line-height: 1.5rem;
         margin-bottom: 10px;
         padding: 0 17px;
+        text-align: left;
+        text-transform: capitalize;
+        width: 100%;
     }
 
     &__children {
-        // height: 0;
-        padding-left: 15px;
+        height: 0;
+        padding-left: 10px;
         overflow: hidden;
 
         &--expanded {
             height: auto;
+        }
+    }
+
+    &__icon,
+    &__spacer {
+        display: block;
+        height: 1.5rem;
+        margin-right: 15px;
+        width: 1.5rem;
+    }
+
+    &__chevron {
+        margin-left: auto;
+        transition: transform .35s ease;
+
+        &--expanded {
+            transform: rotate(-180deg);
         }
     }
 }

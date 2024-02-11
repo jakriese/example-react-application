@@ -23,5 +23,19 @@ export default function DogTree({ dogs, onClick }: { dogs: DogList, onClick: (va
         }
     })
 
-    return <TreeView items={formattedDogs} onClick={onClick} />
+    return (
+        <TreeView
+            items={
+                [
+                    {
+                        name: 'Dogs',
+                        icon: 'dog.svg',
+                        value: undefined,
+                        children: formattedDogs,
+                    }
+                ]
+            }
+            onClick={onClick}
+        />
+    );
 }
