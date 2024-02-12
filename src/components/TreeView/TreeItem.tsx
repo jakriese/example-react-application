@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { TreeModel } from '../../types/dogs';
 import './tree-item.scss';
 
@@ -8,16 +8,46 @@ export default function TreeItem (
 ) {
     const [expanded, setExpanded] = useState(false);
     const [animationClasses, setAnimationClasses] = useState('');
+    const childContainer = useRef<HTMLDivElement>(null);
 
     function animateExpand(expanded) {
         if (expanded) {
-            // open up
-            // before enter classes (hidden full height)
-            setAnimationClasses('wf-tree-item__children--expanded');
+            expandSection();
         } else {
-            // close
-            setAnimationClasses('');
+            collapseChildren();
         }
+    }
+
+    function collapseChildren() {
+        const height: number = childContainer.current.scrollHeight;
+        
+        childContainer.current.style.transition = '';
+        
+        requestAnimationFrame(function() {
+            childContainer.current.style.height = `${height}px`;
+            childContainer.current.style.transition = null;
+          
+            requestAnimationFrame(function() {
+                childContainer.current.style.height = 0 + 'px';
+            });
+        });
+        
+        setAnimationClasses('');
+    }
+    
+    function expandSection() {
+        const height: number = childContainer.current.scrollHeight;
+
+        function removeSetStyles() {
+            childContainer.current.removeEventListener('transitionend', removeSetStyles);
+            childContainer.current.style.height = null;
+            childContainer.current.style.overflow = null;
+        }
+        
+        childContainer.current.style.height = height + 'px';
+        childContainer.current.style.overflow = 'hidden';
+        childContainer.current.addEventListener('transitionend', removeSetStyles);
+        setAnimationClasses('wf-tree-item__children--expanded');
     }
 
     function handleClick() {
@@ -29,12 +59,11 @@ export default function TreeItem (
         }
     }
 
-    // TODO: better key would be unique id
     const childrenList = (
-        <div className={`wf-tree-item__children ${animationClasses}`}>
+        <div ref={childContainer} className={`wf-tree-item__children ${animationClasses}`} {...(!expanded ? { inert: 'true'} : {})}>
             {
                 children.map((child) => {
-                    return <TreeItem name={child.name} value={child.value} children={child.children || []} icon={child.icon} onClick={onClick} />
+                    return <TreeItem key={child.name} name={child.name} value={child.value} children={child.children || []} icon={child.icon} onClick={onClick} />
                 })
             }
         </div>

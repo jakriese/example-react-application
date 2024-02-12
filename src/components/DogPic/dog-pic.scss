@@ -5,7 +5,7 @@
 
     &__image-container {
         border-radius: 20px;
-        box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.14);
+        box-shadow: $elevation-2;
         height: 0;
         padding-top: 77%;
         position: relative;
@@ -23,8 +23,8 @@
     }
 
     &__breed {
-        font-size: 1.25rem;
-        font-weight: 500;
+        font-size: $font-lg;
+        font-weight: $font-medium;
         line-height: 1.5rem;
         margin-bottom: $grid-gutter;
         margin-top: 0;

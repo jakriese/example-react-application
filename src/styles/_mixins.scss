@@ -8,7 +8,7 @@
     width: 1px !important;
 }
 
-@mixin focus-primary {
-    box-shadow: 0 0 0 3px rgba(var(--wf_primary), 0.6) !important;
+@mixin focus-success {
+    box-shadow: 0 0 0 3px rgba(var(--wf_success-focus)) !important;
     outline: none;
 }

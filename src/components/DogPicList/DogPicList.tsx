@@ -2,7 +2,7 @@ import DogPic from '../DogPic';
 import { DogList } from '../../types/dogs';
 import './dog-pic-list.scss';
 
-export default function DogPicList({ dogs, dogFilter = [] }: { dogs: DogList, dogFilter: string[] }) {
+export default function DogPicList({ dogs = {}, dogFilter = [] }: { dogs: DogList, dogFilter: string[] }) {
     // TODO: filter list
     // get to tuples with [breed, subBreed] to match the treeview
 

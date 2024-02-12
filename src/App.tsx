@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import fetchDogContent from './api/dogsService';
+import fetchDogContent from './services/dogsService';
 import SidebarLayout from './layouts/SidebarLayout';
 import DogTree from './components/DogTree';
 import DogPicList from './components/DogPicList';
@@ -16,8 +16,10 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('fetching');
-    fetchDogContent('breeds/list/all').then(data => setDogs(data));
+    const controller = new AbortController();
+    fetchDogContent('breeds/list/all', controller.signal).then(data => setDogs(data));
+
+    return () => { controller.abort() }
   }, [])
 
   return (

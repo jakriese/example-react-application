@@ -1,49 +1,56 @@
 @import '../../styles/required';
 
+$control-height: 20px;
+$knob-size: 14px;
+$knob-spacer: 2px;
+
 .wf-toggle {
+    align-items: center;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
 
     &__input {
         @include sr-only;
     }
 
     &__control {
-        // TODO: add theming here
+        background-color: transparent;
         border: 1px solid rgba(var(--wf_interface-soft));
-        border-radius: 10px;
-        height: 20px;
+        border-radius: calc($control-height / 2);
+        height: $control-height;
         position: relative;
-        transition: .35s ease background-color, .35 ease border-color;
-        width: 40px;
+        transition: $transition-timing background-color, $transition-timing border-color;
+        width: calc($control-height * 2);
 
         &--active {
-            background-color: #0F6CBD;
-            border-color: #0F6CBD;
+            background-color: rgba(var(--wf_success, 1));
+            border-color: rgba(var(--wf_success, 1));
         }
     }
 
     &__input:focus-visible + &__control {
-        @include focus-primary;
+        @include focus-success;
     }
 
     &__knob {
         background-color: rgba(var(--wf_interface-soft));
         border-radius: 50%;
-        height: 14px;
-        left: 2px;
+        height: $knob-size;
+        left: $knob-spacer;
         position: absolute;
-        top: 2px;
-        transition: .35s ease left, .35s ease background-color;
-        width: 14px;
+        top: $knob-spacer;
+        transition: $transition-timing left, $transition-timing background-color;
+        width: $knob-size;
 
         &--active {
-            background-color: #FFF;
-            left: calc(100% - 0.1875rem - 0.875rem);
+            background-color: rgba(var(--wf_white, 1));
+            left: calc(100% - $knob-size - $knob-spacer);
         }
     }
 
     &__label {
+        line-height: 1.25rem;
         margin-left: 0.75rem;
     }
 }

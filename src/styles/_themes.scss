@@ -1,17 +1,45 @@
+// could improve by including primitives outside of themes so that they're not duplicated, unless primitives are changing between themes
+
 $themes: (
     light: (
-        primary: $light-primary,
-        background: ($light-bg, 1),
-        accent: ($light-accent, 1),
-        interface: ($light-interface, 1),
-        interface-soft: ($light-interface-soft, 1),
+        // primitives, only rgb
+        white: $white,
+        soft-tan: $soft-tan,
+        light-gray: $light-gray,
+        middle-gray: $middle-gray,
+        steel-gray: $steel-gray,
+        dark-brown: $dark-brown,
+
+        success: $success,
+
+        // theme-specific, rgba
+        bg: $light-bg,
+        interface: $light-interface,
+        interface-soft: $light-interface-soft,
+        accent: $light-accent,
+        success-focus: ($success, 0.65),
+
+        // component specific
     ),
     dark: (
-        primary: $dark-primary,
-        background: ($dark-bg, 1),
-        accent: ($dark-accent),
-        interface: ($dark-interface, 1),
-        interface-soft: ($dark-interface-soft, 1),
+        // primitives, only rgb
+        white: $white,
+        soft-tan: $soft-tan,
+        light-gray: $light-gray,
+        middle-gray: $middle-gray,
+        steel-gray: $steel-gray,
+        dark-brown: $dark-brown,
+
+        success: $dark-success,
+
+        // theme-specific, rgba
+        bg: $dark-bg,
+        interface: $dark-interface,
+        interface-soft: $dark-interface-soft,
+        accent: $dark-accent,
+        success-focus: ($dark-success, 0.8),
+
+        // component specific
     ),
 );
 

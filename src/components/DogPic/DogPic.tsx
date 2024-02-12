@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import fetchDogContent from '../../api/dogsService';
+import fetchDogContent from '../../services/dogsService';
 import './dog-pic.scss';
 
 export default function DogPic({ breed, subBreed }: { breed: string, subBreed?: string }) {
@@ -8,10 +8,13 @@ export default function DogPic({ breed, subBreed }: { breed: string, subBreed?: 
     const [breedImg, setBreedImg] = useState('');
 
     useEffect(() => {
-        fetchDogContent(`breed/${breed}/${subBreed && `${subBreed}/` || ''}images/random`)
+        const controller = new AbortController();
+        fetchDogContent(`breed/${breed}/${subBreed && `${subBreed}/` || ''}images/random`, controller.signal)
             .then((data) => {
                 setBreedImg(data);
-            })
+            });
+
+        return () => { controller.abort() }
     }, [])
 
     return (

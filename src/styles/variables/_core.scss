@@ -1,4 +1,8 @@
+
+// grid
+
 $grid-gutter: 40px;
+$grid-steps: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
 $grid-breakpoints: (
     xs: 400px,
@@ -8,4 +12,11 @@ $grid-breakpoints: (
     xl: 1600px,
 );
 
-$grid-steps: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+// transitions
+
+$transition-timing: 0.35s ease;
+
+// elevation 
+
+$elevation-1: 0 5px 10px rgba(0,0,0,0.25);
+$elevation-2: 0 0 2px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.14);

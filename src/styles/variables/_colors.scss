@@ -1,15 +1,24 @@
-// light theme
-$light-primary: 15, 108, 189;
-$light-bg: 255, 248, 242;
+// primitives
+$white: 255, 255, 255;
+$soft-tan: 255, 248, 242;
+$light-gray: 185, 185, 185;
+$middle-gray: 97, 97, 97;
+$steel-gray: 47, 58, 75;
+$dark-brown: 40, 31, 34;
 
-$light-interface: 47, 58, 75;
-$light-interface-soft: 97, 97, 97;
-$light-accent: 185, 185, 185;
+$success: 15, 108, 189; // just below 3:1 contrast ratio for dark bg
+$dark-success: 24, 130, 222;
+
+// light theme
+$light-bg: ($soft-tan, 1);
+$light-interface: ($steel-gray, 1);
+$light-interface-soft: ($middle-gray, 1);
+$light-accent: ($light-gray, 1);
 
 // dark theme
-$dark-primary: 15, 108, 189;
-$dark-bg: 40, 31, 34;
+$dark-bg: ($dark-brown, 1);
+$dark-interface: ($light-gray, 1);
+$dark-interface-soft: ($middle-gray, 1);
+$dark-accent: ($middle-gray, 1);
 
-$dark-interface: $light-bg;
-$dark-interface-soft: $light-interface;
-$dark-accent: $light-interface-soft;
+// components
